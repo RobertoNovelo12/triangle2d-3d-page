@@ -15,23 +15,23 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
-    position: relative; /* Necesario para posicionar el título correctamente */
+    position: relative; 
 }
 
-/* Contenedor principal */
+
 .content {
     max-width: 1200px;
-    margin: 100px auto 20px; /* Aumenta el margen superior para evitar superposiciones */
+    margin: 100px auto 20px; 
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrar todo el contenido */
+    align-items: center; 
 }
 
-/* Botón "Volver" */
+
 .back-button {
     position: fixed;
-    top: 20px; /* Misma posición vertical que el título */
+    top: 20px; 
     left: 20px;
     padding: 10px 20px;
     font-size: 16px;
@@ -50,23 +50,23 @@ body {
     transform: translateY(-2px);
 }
 
-/* Título */
+
 .titulo-triangulo {
-    position: fixed; /* Fijo en la parte superior */
-    top: 20px; /* Misma posición vertical que el botón "Volver" */
-    right: 20px; /* Ajusta este valor para moverlo más a la izquierda o derecha */
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
     font-size: 36px;
     font-weight: bold;
     color: var(--primary-color);
-    margin: 0; /* Elimina el margen predeterminado del h1 */
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
-    padding: 10px 20px; /* Espaciado interno */
-    border-radius: var(--border-radius); /* Bordes redondeados */
-    box-shadow: var(--box-shadow); /* Sombra suave */
+    margin: 0; 
+    z-index: 1000; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 10px 20px; 
+    border-radius: var(--border-radius); 
+    box-shadow: var(--box-shadow); 
 }
 
-/* Inputs */
+
 .inputs-container {
     display: flex;
     flex-direction: row;
@@ -104,7 +104,7 @@ body {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Canvas */
+
 .canvas-container {
     margin-top: 40px;
     display: flex;
@@ -121,29 +121,29 @@ body {
     height: 400px;
 }
 
-/* Contenedor para el canvas y la altura */
+
 .canvas-and-altura-container {
     display: flex;
     flex-direction: row;
-    align-items: center; /* Alinea verticalmente el canvas y el contenedor de la altura */
-    justify-content: center; /* Centra el canvas y el contenedor de la altura horizontalmente */
-    gap: 20px; /* Espacio entre el canvas y el contenedor de la altura */
+    align-items: center; 
+    justify-content: center; 
+    gap: 20px; 
     width: 100%;
-    max-width: 800px; /* Limitar el ancho máximo */
-    margin: 0 auto; /* Centrar el contenedor */
+    max-width: 800px; 
+    margin: 0 auto; 
 }
 
 .altura-container {
-    text-align: left; /* Alinea el texto a la izquierda */
+    text-align: left; 
 }
 
 .base-container {
-    width: 100%; /* Ocupa todo el ancho disponible */
-    text-align: center; /* Centra el texto dentro del contenedor */
-    margin-top: 20px; /* Ajusta este valor para separarlo del canvas */
+    width: 100%; 
+    text-align: center; 
+    margin-top: 20px; 
 }
 
-/* Botones */
+
 .buttons-container {
     margin-top: 30px;
     display: flex;
@@ -174,7 +174,7 @@ button:not(.back-button):hover {
     transform: translateY(-2px);
 }
 
-/* Resultados */
+
 .result-container {
     margin-top: 40px;
     padding: 20px;
@@ -183,7 +183,7 @@ button:not(.back-button):hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 100%;
-    max-width: 800px; /* Limitar el ancho máximo */
+    max-width: 800px; 
 }
 
 .result-container p {
@@ -191,7 +191,7 @@ button:not(.back-button):hover {
     margin: 10px 0;
 }
 
-/* Selector de color */
+
 .color-picker {
     margin-top: 20px;
     display: flex;
@@ -219,17 +219,17 @@ button:not(.back-button):hover {
     transform: scale(1.1);
 }
 
-/* Contenedor de las imágenes de instrucciones */
+
 .imagenes-instrucciones {
     position: relative;
     width: 100%;
     max-width: 300px;
-    height: 80px; /* Ajusta la altura según tus necesidades */
+    height: 80px; 
     margin: 0 auto;
     overflow: hidden;
 }
 
-/* Estilo para las imágenes de instrucciones */
+
 .instruccion {
     position: absolute;
     top: 0;
@@ -246,7 +246,7 @@ button:not(.back-button):hover {
     opacity: 1;
 }
 
-/* Estilo para los iconos */
+
 .icono {
     width: 40px;
     height: 40px;
@@ -260,15 +260,15 @@ button:not(.back-button):hover {
 }
 
 #container-3d {
-    width: 100%; /* Ocupa el 100% del ancho disponible */
-    height: 50vh; /* 50% de la altura de la ventana */
-    max-width: 600px; /* Ancho máximo para evitar que sea demasiado grande */
-    max-height: 600px; /* Altura máxima para evitar que sea demasiado grande */
-    margin: 0 auto; /* Centrar el contenedor */
-    border: 1px solid #ccc; /* Borde para visualización */
+    width: 100%; 
+    height: 50vh; 
+    max-width: 600px; 
+    max-height: 600px; 
+    margin: 0 auto; 
+    border: 1px solid #ccc; 
 }
 
-/* Responsividad */
+
 @media (max-width: 768px) {
     .inputs-container {
         flex-direction: column;
@@ -286,45 +286,45 @@ button:not(.back-button):hover {
     }
 
     .titulo-triangulo {
-        font-size: 28px; /* Tamaño de fuente más pequeño en móviles */
-        top: 10px; /* Ajusta la posición vertical */
-        right: 80px; /* Ajusta la posición horizontal */
-        padding: 8px 16px; /* Reduce el espaciado interno */
+        font-size: 28px; 
+        top: 10px; 
+        right: 80px; 
+        padding: 8px 16px; 
     }
 
     .back-button {
-        top: 10px; /* Ajusta la posición vertical */
-        left: 10px; /* Ajusta la posición horizontal */
-        padding: 8px 16px; /* Reduce el espaciado interno */
-        font-size: 14px; /* Tamaño de fuente más pequeño */
+        top: 10px; 
+        left: 10px; 
+        padding: 8px 16px; 
+        font-size: 14px; 
     }
 
     .content {
-        margin-top: 80px; /* Reduce el margen superior en móviles */
+        margin-top: 80px; 
     }
 
     .canvas-and-altura-container {
-        flex-direction: column; /* Cambia a columna en móviles */
-        align-items: center; /* Centra los elementos verticalmente */
-        gap: 10px; /* Reduce el espacio entre el canvas y el contenedor de la altura */
+        flex-direction: column; 
+        align-items: center; 
+        gap: 10px; 
     }
 
     .altura-container {
-        text-align: center; /* Centra el texto de la altura en móviles */
+        text-align: center; 
     }
 
     .base-container {
-        margin-top: 10px; /* Reduce el margen superior en móviles */
+        margin-top: 10px; 
     }
 
     #container-3d {
-        width: 80vw; /* 90% del ancho de la ventana */
-        height: 40vh; /* 40% de la altura de la ventana */
+        width: 80vw; 
+        height: 40vh; 
     }
 }
 
 .titulo-triangulo-index{
-    margin-top: 80px; /* Más espacio arriba */
+    margin-top: 80px; 
     font-size: 36px;
     font-weight: bold;
     text-align: center;
@@ -333,17 +333,17 @@ button:not(.back-button):hover {
 
 @media (max-width: 480px) {
     .titulo-triangulo {
-        font-size: 24px; /* Tamaño de fuente más pequeño en móviles */
-        top: 10px; /* Ajusta la posición vertical */
-        right: 60px; /* Ajusta la posición horizontal */
-        padding: 6px 12px; /* Reduce el espaciado interno */
+        font-size: 24px; 
+        top: 10px; 
+        right: 60px; 
+        padding: 6px 12px; 
     }
 
     .back-button {
-        top: 10px; /* Ajusta la posición vertical */
-        left: 10px; /* Ajusta la posición horizontal */
-        padding: 6px 12px; /* Reduce el espaciado interno */
-        font-size: 12px; /* Tamaño de fuente más pequeño */
+        top: 10px; 
+        left: 10px; 
+        padding: 6px 12px; 
+        font-size: 12px; 
     }
 
     .inputs input {
@@ -356,11 +356,11 @@ button:not(.back-button):hover {
     }
 
     .canvas-and-altura-container {
-        gap: 5px; /* Reduce aún más el espacio entre el canvas y el contenedor de la altura */
+        gap: 5px; 
     }
 
     .base-container {
-        margin-top: 5px; /* Reduce aún más el margen superior en móviles pequeños */
+        margin-top: 5px; 
     }
 
     #container-3d {
@@ -369,6 +369,6 @@ button:not(.back-button):hover {
     }
 
     .content {
-        margin-top: 60px; /* Reduce el margen superior en móviles */
+        margin-top: 60px; 
     }
 }
