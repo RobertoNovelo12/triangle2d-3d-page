@@ -214,7 +214,6 @@ let colorTriangulo = "#ff0000";
 let scene, camera, renderer, prism, controls;
 
 function iniciarEscena3D() {
-    
     const base = parseFloat(localStorage.getItem("base")) || 2;
     const altura = parseFloat(localStorage.getItem("altura")) || 2;
     const angulo = parseFloat(localStorage.getItem("angulo")) || 60;
@@ -242,26 +241,16 @@ function iniciarEscena3D() {
         scene.background = new THREE.Color(0xd0dce9);
 
         
-        const gridSize = base * 2; 
-        const gridDivisions = base * 2; 
+        const gridSize = base * 2;
+        const gridDivisions = base * 2;
         const gridHelper = new THREE.GridHelper(gridSize, gridDivisions, 0x000000, 0x808080);
-        gridHelper.position.set(gridSize / 2, -0.01, 0); 
+        gridHelper.position.set(base / 2, -0.01, 0); 
         scene.add(gridHelper);
 
         
-        camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 1000);
-
-        
-        const cameraX = 40.705614742773273;
-        const cameraY =20.753499582310589;
-        const cameraZ =20.861897684189778;
-
-        
-        camera.position.set(cameraX, cameraY, cameraZ);
-        camera.lookAt(gridSize / 2, 0, 0); 
-
-        
-        console.log(`Posición de la cámara ajustada: X: ${cameraX}, Y: ${cameraY}, Z: ${cameraZ}`);
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(10, 10, 10); 
+        camera.lookAt(base / 2, 0, 0); 
 
         
         renderer = new THREE.WebGLRenderer();
@@ -270,19 +259,19 @@ function iniciarEscena3D() {
         container.appendChild(renderer.domElement);
 
         
-        const depth = base / 2; 
-        const offsetX = gridSize / 2; 
+        const depth = base / 2;
+        const offsetX = base / 2;
 
-        const vertices = new Float32Array([ 
-            offsetX, 0, 0,              
-            offsetX + base, 0, 0,       
-            offsetX + base / 2, altura, 0, 
-            offsetX, 0, -depth,         
-            offsetX + base, 0, -depth,  
-            offsetX + base / 2, altura, -depth 
+        const vertices = new Float32Array([
+            offsetX, 0, 0,
+            offsetX + base, 0, 0,
+            offsetX + base / 2, altura, 0,
+            offsetX, 0, -depth,
+            offsetX + base, 0, -depth,
+            offsetX + base / 2, altura, -depth
         ]);
 
-        const indices = new Uint16Array([ 
+        const indices = new Uint16Array([
             0, 1, 2,
             3, 4, 5,
             0, 1, 4, 0, 4, 3,
@@ -308,20 +297,20 @@ function iniciarEscena3D() {
 
         
         controls = new THREE.OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.25;
-        controls.screenSpacePanning = false;
+        controls.minDistance = 5; 
+        controls.maxDistance = 50; 
+        controls.enablePan = true; 
+        controls.enableDamping = true; 
+        controls.dampingFactor = 0.05; 
 
         
         function animate() {
             requestAnimationFrame(animate);
             controls.update();
-
             renderer.render(scene, camera);
         }
         animate();
-    }
-    else {
+    } else {
         
         prism.material.color.set(colorTriangulo);
     }
