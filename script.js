@@ -6,11 +6,9 @@ function actualizarResultados() {
 
     // Calcular área y hipotenusa
     let area = (base * altura) / 2;
-    let hipotenusa = Math.sqrt(base ** 2 + altura ** 2).toFixed(2);
 
     // Actualizar los valores en la página
     document.getElementById("resultado").innerText = area.toFixed(2);
-    document.getElementById("hipotenusaValor").innerText = hipotenusa;
     document.getElementById("baseValor").innerText = base;
     document.getElementById("alturaValor").innerText = altura;
 
@@ -26,6 +24,10 @@ function dibujarTriangulo(color) {
     let canvas = document.getElementById("canvas2D");
     if (!canvas) return;
 
+    // Asegúrate de que el canvas tenga las dimensiones correctas
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+
     let ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -38,14 +40,13 @@ function dibujarTriangulo(color) {
     const canvasHeight = canvas.height;
     let scale = Math.min(canvasWidth / base, canvasHeight / altura) * 0.8;
 
-    let x1 = canvasWidth / 2 - (base * scale) / 2;
-    let y1 = canvasHeight - 30;
-    let x2 = x1 + (base * scale);
+    // Calcular las coordenadas del triángulo
+    let x1 = (canvasWidth - base * scale) / 2; // Centrar horizontalmente
+    let y1 = canvasHeight - (canvasHeight - altura * scale) / 2; // Centrar verticalmente
+    let x2 = x1 + base * scale;
     let y2 = y1;
-
-    // Nuevo cálculo del tercer vértice para un triángulo isósceles
-    let x3 = canvasWidth / 2;
-    let y3 = y1 - (altura * scale);
+    let x3 = x1 + (base * scale) / 2;
+    let y3 = y1 - altura * scale;
 
     // Dibujar el triángulo
     ctx.beginPath();
@@ -75,7 +76,7 @@ function inicializarValores() {
         document.getElementById("baseValor").textContent = base;
         document.getElementById("alturaValor").textContent = altura;
         document.getElementById("resultado").textContent = (base * altura) / 2;
-        document.getElementById("hipotenusaValor").textContent = Math.sqrt(base ** 2 + altura ** 2).toFixed(2);
+
         document.getElementById("procedimiento").textContent = 
             `Área del triángulo:\n\n` +
             `A = (base × altura) / 2\n` +
@@ -220,23 +221,19 @@ function iniciarEscena3D() {
     const angulo = parseFloat(localStorage.getItem("angulo")) || 60;
 
     // Calcular hipotenusa y área
-    const hipotenusa = Math.sqrt(Math.pow(base / 2, 2) + Math.pow(altura, 2));
     const area = (base * altura) / 2;
 
     // Actualizar valores en la interfaz
     document.getElementById("baseValor3d").textContent = base.toFixed(2);
     document.getElementById("alturaValor3d").textContent = altura.toFixed(2);
     document.getElementById("resultado3d").textContent = area.toFixed(2);
-    document.getElementById("hipotenusaValor3d").textContent = hipotenusa.toFixed(2);
 
     // Mostrar procedimiento
-    const procedimiento = `
-    Procedimiento:
-    La base del triángulo es: ${base}.
-    La altura del triángulo es: ${altura}.
-    Se calcula el área: (base * altura) / 2 = ${area.toFixed(2)}.
-    La hipotenusa es: ${hipotenusa.toFixed(2)}.
-    `;
+    const procedimiento =
+        `Área del triángulo: \n` +
+        `A = (base × altura) / 2\n` +
+        `A = (${base} × ${altura}) / 2\n` +
+        `A = ${area.toFixed(2)}`;
     document.getElementById("procedimiento3d").textContent = procedimiento;
 
     // Verificar si la escena ya está creada
@@ -269,7 +266,7 @@ function iniciarEscena3D() {
 
         // Configurar el renderizador
         renderer = new THREE.WebGLRenderer();
-        const container = document.getElementById("3d-container");
+        const container = document.getElementById("container-3d");
         renderer.setSize(container.clientWidth, container.clientHeight);
         container.appendChild(renderer.domElement);
 
@@ -383,10 +380,15 @@ iconoMovil.addEventListener('click', () => {
 
 // Función para ajustar el tamaño del canvas 3D cuando cambie el tamaño de la pantalla
 function ajustarCanvas3D() {
-    const container = document.getElementById('3d-container');
-    container.style.width = window.innerWidth * 0.8 + 'px'; // El 80% del ancho de la ventana
-    container.style.height = window.innerHeight * 0.5 + 'px'; // La mitad de la altura de la ventana
-        }
+    const container = document.getElementById('container-3d');
+    if (container && renderer) {
+        const width = container.clientWidth; // Ancho del contenedor
+        const height = container.clientHeight; // Altura del contenedor
+        renderer.setSize(width, height); // Ajustar el tamaño del renderizador
+        camera.aspect = width / height; // Ajustar la relación de aspecto de la cámara
+        camera.updateProjectionMatrix(); // Actualizar la cámara
+    }
+}
 
 // Llamar a la función cuando la ventana cambie de tamaño
 window.addEventListener('resize', ajustarCanvas3D);

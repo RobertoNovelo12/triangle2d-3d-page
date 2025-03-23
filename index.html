@@ -8,9 +8,13 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1 class="titulo-triangulo">Triángulo</h1>
+    <h1 class="titulo-triangulo-index">Triángulo</h1>
+    
     
     <div class="content">
+        <div class="triangle-container">
+            <canvas id="canvasStatic" width="150" height="150"></canvas>
+        </div>
         <div class="inputs-container">
             <div class="inputs">
                 <label for="base">Base:</label>
@@ -18,10 +22,6 @@
 
                 <label for="altura">Altura:</label>
                 <input type="number" id="altura" min="1" placeholder="Ingrese altura">
-            </div>
-
-            <div class="triangle-container">
-                <canvas id="canvasStatic" width="150" height="150"></canvas>
             </div>
         </div>
 
