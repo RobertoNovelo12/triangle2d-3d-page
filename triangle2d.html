@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triángulo en 2D</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <button class="back-button" onclick="volver()">← Volver</button>
+    <h1 class="titulo-triangulo">Triángulo en 2D</h1>
+
+    <div class="content">
+        <!-- Contenedor para el Canvas -->
+        <div class="canvas-container">
+            <canvas id="canvas2D" class="canvas-triangulo" width="400" height="400"></canvas>
+            <!-- Contenedor para la altura al lado derecho del canvas -->
+            <div class="altura-container">
+                <p><strong>Altura:</strong> <span id="alturaValor"></span></p>
+            </div>
+        </div>
+    
+        <!-- Base debajo del Canvas -->
+        <div class="base-container">
+            <p><strong>Base:</strong> <span id="baseValor"></span></p>
+        </div>
+    
+        <!-- Selector de color para el triángulo -->
+        <div class="color-picker">
+            <label for="color">Seleccionar color:</label>
+            <input type="color" id="color" value="#ff0000" onchange="cambiarColor()">
+        </div>
+    
+        <!-- Resultados del triángulo -->
+        <div class="result-container">
+            <p><strong>Resultado del Área:</strong> <span id="resultado"></span></p>
+            <p><strong>Procedimiento:</strong></p>
+            <pre id="procedimiento"></pre>
+            <p><strong>Hipotenusa:</strong> <span id="hipotenusaValor"></span></p>
+        </div>
+    </div>
+</body>
+</html>

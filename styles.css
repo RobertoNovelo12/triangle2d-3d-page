@@ -1,0 +1,346 @@
+/* Estilos generales para el cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Estilo específico para el botón "Volver" */
+.back-button {
+    position: fixed; /* Esto es clave */
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    width: auto; /* Ancho automático, no 100% */
+    display: inline-block; /* Evita que ocupe todo el ancho */
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+/* Título */
+.titulo-triangulo {
+    margin-top: 0; /* Elimina el margen superior */
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.content {
+    display: flex;
+    flex-direction: column; /* Los elementos van en columna por defecto */
+    align-items: center;
+    padding: 10px;
+}
+
+/* Contenedor para el canvas */
+.canvas-container {
+    margin-top: 20px;  /* Ajusta el espacio entre el título y el triángulo */
+    display: flex;
+    flex-direction: column; /* Centra los elementos en columna */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-shadow: 0px 0px 4px black;
+}
+
+/* Estilo para el canvas */
+.canvas-triangulo {
+    border: 1px solid #ccc;
+    width: 200px;  /* Ajustar el tamaño del canvas */
+    height: 200px; /* Ajustar el tamaño del canvas */
+    position: relative;
+}
+
+/* Estilo para el contenedor del canvas 3D */
+#3d-container {
+    display: block;
+    width: 600px; /* Tamaño fijo o ajustable */
+    height: 600px; /* Tamaño fijo o ajustable */
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 4px black; /* Sombra para el canvas */
+}
+
+/* El contenedor de la altura */
+.altura-container {
+    font-size: 18px;
+    background-color: #f9f9f9; /* Fondo para resaltar */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Asegurarse de que el contenedor de base también se vea correctamente */
+.base-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background-color: #f9f9f9; /* Fondo para resaltar */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 20px; /* Espacio entre el canvas y la base */
+}
+
+/* Primer div: Inputs y triángulo */
+.inputs-container {
+    display: flex;
+    flex-direction: row; /* Los inputs y el triángulo en fila en PC */
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column; /* Los inputs en columna */
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.triangle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   
+
+/* Selector de color */
+.color-picker {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor para el canvas 3D y la altura */
+.canvas-and-altura-container {
+    display: flex; /* Alinea el canvas y la altura en una fila */
+    align-items: center; /* Centra verticalmente la altura */
+    gap: 20px; /* Espacio entre el canvas y la altura */
+    margin-bottom: 20px; /* Espacio entre este contenedor y la base */
+}
+
+/* Contenedor de la base */
+.base-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente la base */
+    align-items: center;
+    font-size: 18px;
+    background-color: #f9f9f9; /* Fondo para resaltar */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 20px; /* Espacio entre el canvas y la base */
+}
+
+/* Resultados debajo del Canvas */
+.result-container {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Procedimiento en la sección de resultados */
+#procedimiento3d {
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin-top: 10px;
+}
+
+/* Estilo para el canvas (triángulo estático) */
+#canvasStatic {
+    border: 1px solid #ccc;
+    width: 150px;
+    height: 150px;
+}
+
+/* Segundo div: Botones */
+.buttons-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column; /* Los botones estarán en columna en móvil */
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo global para botones (evita que afecte al botón "Volver") */
+button:not(.back-button) {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: steelblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+/* Tercer div: Área */
+.result-container {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Contenedor principal de las instrucciones */
+.instrucciones-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Contenedor de los iconos */
+.iconos-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los iconos */
+    margin-bottom: 10px; /* Espacio entre los iconos y las imágenes */
+}
+
+/* Estilo para los iconos */
+.icono {
+    width: 40px; /* Tamaño de los iconos */
+    height: 40px;
+    cursor: pointer;
+    opacity: 0.5; /* Iconos inactivos son semi-transparentes */
+    transition: opacity 0.3s ease; /* Transición suave */
+}
+
+.icono.activo {
+    opacity: 1; /* Icono activo es completamente visible */
+}
+
+/* Contenedor de las imágenes de instrucciones */
+.imagenes-instrucciones {
+    position: relative;
+    width: 100%; /* Ocupa el ancho completo del contenedor padre */
+    max-width: 400px; /* Ancho máximo para evitar que sea demasiado grande */
+    height: 100px; /* Altura fija para el contenedor */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 10px; /* Espacio interno para separar las imágenes del borde */
+}
+
+/* Estilo para las imágenes de instrucciones */
+.instruccion {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    height: 100%; /* Ajusta la altura al 100% del contenedor */
+    object-fit: contain; /* Mantiene la proporción de la imagen */
+    opacity: 0; /* Inicialmente ocultas */
+    transition: opacity 0.5s ease; /* Transición suave */
+}
+
+.instruccion.activo {
+    opacity: 1; /* Imagen activa es completamente visible */
+}
+
+/* Responsividad: cuando la pantalla es más pequeña de 600px */
+@media (max-width: 600px) {
+
+    #3d-container {
+        width: 100%; /* El canvas ocupará el 100% del ancho */
+        height: 300px; /* Menor altura en pantallas pequeñas */
+    }
+
+    .canvas-and-altura-container {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: center; /* Centra los elementos */
+    }
+
+    .inputs-container {
+        flex-direction: column; /* Los inputs y triángulo en columna en móviles */
+        align-items: center;
+    }
+
+    /* Los inputs deben estar centrados */
+    .inputs {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Los botones estarán en fila en pantallas pequeñas */
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* El triángulo estará debajo de los inputs en pantallas pequeñas */
+    .triangle-container {
+        margin-top: 20px;
+    }
+
+    .imagenes-instrucciones {
+        max-width: 100%; /* Ocupa todo el ancho en móviles */
+        height: 300px; /* Altura reducida en móviles */
+        padding: 5px; /* Menor padding en móviles */
+    }
+
+    /* Ajusta el tamaño de las imágenes en móviles */
+    .instruccion {
+        max-height: 300px; /* Altura máxima reducida en móviles */
+    }
+
+    /* Ajusta el tamaño de los iconos en móviles */
+    .icono {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Responsividad: cuando la pantalla es mayor de 600px */
+@media (min-width: 601px) {
+
+    #3d-container {
+        width: 80%; /* El canvas ocupa el 80% del ancho */
+        height: 600px; /* Altura constante */
+    }
+
+    .content {
+        flex-direction: column; /* Los elementos se apilan en columna en PC */
+    }
+
+    .inputs-container {
+        flex-direction: row; /* Los inputs y triángulo en fila en PC */
+    }
+
+    /* Los botones estarán en fila en pantallas grandes */
+    .buttons {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    /* El triángulo estará a la derecha de los inputs */
+    .triangle-container {
+        order: 2;
+    }
+}

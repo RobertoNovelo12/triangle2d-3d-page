@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triángulo en 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <button class="back-button" onclick="volver()">← Volver</button>
+    <h1 class="titulo-triangulo">Triángulo en 3D</h1>
+
+    <div class="content">
+        <!-- Contenedor para el canvas 3D y la altura -->
+        <div class="canvas-and-altura-container">
+            <!-- Canvas 3D -->
+            <div id="3d-container" style="width: 600px; height: 600px;"></div>
+            <!-- Contenedor de la altura (a la derecha del canvas) -->
+            <div class="altura-container">
+                <p><strong>Altura:</strong> <span id="alturaValor3d"></span></p>
+            </div>
+        </div>
+
+        <!-- Contenedor de la base (debajo del canvas) -->
+        <div class="base-container">
+            <p><strong>Base:</strong> <span id="baseValor3d"></span></p>
+        </div>
+        
+        <div class="instrucciones-container">
+            <!-- Iconos de PC y móvil -->
+            <div class="iconos-container">
+                <img id="icono-pc" src="img/pc-icon.png" alt="Instrucciones PC" class="icono activo">
+                <img id="icono-movil" src="img/movil-ico.png" alt="Instrucciones Móvil" class="icono">
+            </div>
+        
+            <!-- Contenedor de las imágenes de instrucciones -->
+            <div class="imagenes-instrucciones">
+                <img id="instrucciones-pc" src="img/instrucciones.png" alt="Instrucciones PC" class="instruccion activo">
+                <img id="instrucciones-movil" src="img/instrucciones-movil.jpg" alt="Instrucciones Móvil" class="instruccion">
+            </div>
+        </div>
+        <!-- Selector de color -->
+        <div class="color-picker">
+            <label for="color3d">Seleccionar color:</label>
+            <input type="color" id="color3d" value="#ff0000" onchange="cambiarColor3D()">
+        </div>
+
+        <!-- Resultados -->
+        <div class="result-container">
+            <p><strong>Resultado del Área:</strong> <span id="resultado3d"></span></p>
+            <p><strong>Procedimiento:</strong></p>
+            <pre id="procedimiento3d"></pre>
+            <p><strong>Hipotenusa:</strong> <span id="hipotenusaValor3d"></span></p>
+        </div>
+    </div>
+</body>
+</html>
