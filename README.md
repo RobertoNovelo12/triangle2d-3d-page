@@ -16,7 +16,7 @@ Este proyecto es una aplicación web que permite visualizar y calcular las propi
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/triangle2d-3d-page.git
+   https://github.com/RobertoNovelo12/triangle2d-3d-page.git
     cd triangulo-2d-3d
 
 ## Uso
