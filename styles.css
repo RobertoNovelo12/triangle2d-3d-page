@@ -223,21 +223,21 @@ button:not(.back-button):hover {
 .imagenes-instrucciones {
     position: relative;
     width: 100%;
-    max-width: 300px;
-    height: 80px; 
-    margin: 0 auto;
+    max-width: 600px; 
+    min-height: 200px; 
+    aspect-ratio: 16 / 9; 
+    margin: 20px auto; 
     overflow: hidden;
 }
-
 
 .instruccion {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
     opacity: 0;
     transition: opacity 0.5s ease;
 }
@@ -253,6 +253,9 @@ button:not(.back-button):hover {
     cursor: pointer;
     opacity: 0.5;
     transition: opacity 0.3s ease;
+    border: 2px solid rgb(118, 118, 118);
+    border-radius: var(--border-radius);
+    padding: 5px;
 }
 
 .icono.activo {
@@ -265,7 +268,9 @@ button:not(.back-button):hover {
     max-width: 600px; 
     max-height: 600px; 
     margin: 0 auto; 
-    border: 1px solid #ccc; 
+    border: 1px solid #ccc;
+    border: 2px solid rgb(131, 131, 131);
+    border-radius: var(--border-radius);
 }
 
 
@@ -273,6 +278,16 @@ button:not(.back-button):hover {
     .inputs-container {
         flex-direction: column;
         align-items: center;
+    }
+
+    .imagenes-instrucciones {
+        max-width: 100%; 
+        min-height: 200px; 
+    }
+
+    .instruccion {
+        width: 100%; 
+        height: auto; 
     }
 
     #canvas2D {

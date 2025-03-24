@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="script.js" defer></script>
+    <script src="js/utils.js"></script>
+    <script src="js/calculations.js"></script>
+    <script src="js/canvas3D.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/instrucciones.js"></script> <!-- Nuevo archivo -->
+    <script src="js/main.js"></script>
 </head>
 <body>
     <button class="back-button" aria-label="Volver a la página principal" onclick="volver()">← Volver</button>
@@ -17,7 +22,7 @@
         <!-- Contenedor para el canvas 3D y la altura -->
         <div class="canvas-and-altura-container">
             <!-- Canvas 3D -->
-            <div id="container-3d"></div>
+            <div id="container-3d" style="width: 100%; height: 50vh;"></div>
             <!-- Contenedor de la altura (a la derecha del canvas) -->
             <div class="altura-container">
                 <p><strong>Altura:</strong> <span id="alturaValor3d"></span></p>
@@ -29,7 +34,7 @@
             <p><strong>Base:</strong> <span id="baseValor3d"></span></p>
         </div>
         
-        <div class="instrucciones-container">
+        <div class="instrucciones-containre">
             <!-- Iconos de PC y móvil -->
             <div class="iconos-container">
                 <img id="icono-pc" src="img/pc-icon.png" alt="Instrucciones PC" class="icono activo">
@@ -53,7 +58,6 @@
             <p><strong>Resultado del Área:</strong> <span id="resultado3d"></span></p>
             <p><strong>Procedimiento:</strong></p>
             <pre id="procedimiento3d"></pre>
-
         </div>
     </div>
 </body>
